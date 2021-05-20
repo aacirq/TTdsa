@@ -27,21 +27,24 @@ public class N37 {
         int res = 0;
         while (left <= right) {
             mid = left + (right - left) / 2;
-            if (array[mid] < k) {
+            if (array[mid] <= k) {
                 left = mid + 1;
-            } else if (array[mid] > k) {
-                right = mid - 1;
             } else {
-                int tl = mid - 1;
-                while (tl >= left && array[tl] == k)
-                    --tl;
-                int tr = mid + 1;
-                while (tr <= right && array[tr] == k)
-                    ++tr;
-                res = tr - tl - 1;
-                break;
+                right = mid - 1;
             }
         }
-        return res;
+        int upBound = left;
+        left = 0;
+        right = array.length - 1;
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            if (array[mid] < k) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        int downBound = left;
+        return upBound - downBound;
     }
 }
