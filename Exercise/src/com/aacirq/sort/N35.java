@@ -1,4 +1,4 @@
-package com.aacirq.array;
+package com.aacirq.sort;
 
 public class N35 {
     public static void main(String[] args) {
