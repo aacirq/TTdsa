@@ -19,6 +19,7 @@ public class N51 {
 
     public int[] multiply(int[] A) {
         int[] res = new int[A.length];
+
         int pre = 1;
         for (int i = 0; i < A.length; i++) {
             res[i] = pre;
