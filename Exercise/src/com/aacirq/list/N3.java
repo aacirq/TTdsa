@@ -2,7 +2,6 @@ package com.aacirq.list;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 public class N3 {
     public static void main(String[] args) {
@@ -22,14 +21,5 @@ public class N3 {
             listNode = listNode.next;
         }
         return new ArrayList<>(list);
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
     }
 }
