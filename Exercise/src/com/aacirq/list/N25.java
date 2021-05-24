@@ -1,7 +1,5 @@
 package com.aacirq.list;
 
-import java.util.Random;
-
 public class N25 {
     public static void main(String[] args) {
         N25 sol = new N25();
