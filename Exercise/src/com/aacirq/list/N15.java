@@ -9,11 +9,13 @@ public class N15 {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
-        printList(sol.ReverseList(head));
+        // 5 ->4 ->3 ->2 ->1 ->
+        ListNode.printList(sol.ReverseList(head));
 
         // 另一个链表
         ListNode head2 = new ListNode(1);
-        printList(sol.ReverseList(head2));
+        // 1 ->
+        ListNode.printList(sol.ReverseList(head2));
     }
 
     public ListNode ReverseList(ListNode head) {
@@ -32,13 +34,5 @@ public class N15 {
         }
 
         return cur;
-    }
-
-    public static void printList(ListNode head) {
-        while (head != null) {
-            System.out.printf("%d ->", head.val);
-            head = head.next;
-        }
-        System.out.println("");
     }
 }
