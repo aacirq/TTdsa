@@ -16,6 +16,7 @@ public class N17 {
         root2.left = new TreeNode(9);
         root2.left.left = new TreeNode(2);
 
+        // true
         System.out.println(sol.HasSubtree(root1, root2));
     }
 
