@@ -3,9 +3,9 @@ package com.aacirq.list;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class N3 {
+public class N03 {
     public static void main(String[] args) {
-        N3 sol = new N3();
+        N03 sol = new N03();
 
         ListNode head = new ListNode(67);
         head.next = new ListNode(0);
