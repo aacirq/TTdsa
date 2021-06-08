@@ -5,7 +5,9 @@ public class N01 {
         N01 solution = new N01();
 
         int[][] nums = {{1, 2, 8, 9}, {2, 4, 9, 12}, {4, 7, 10, 13}, {6, 8, 11, 15}};
+        // true
         System.out.println(solution.Find(7, nums));
+        // false
         System.out.println(solution.Find(3, nums));
     }
 
