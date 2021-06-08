@@ -4,7 +4,7 @@
 
 #include "ttdsa.h"
 
-ListNode *construct_list(const std::vector<int> &vec) {
+ListNode *ListNode::construct(const std::vector<int> &vec) {
     ListNode *head = new ListNode();
     ListNode *node = head;
     for (auto itr = vec.begin(), itr_e = vec.end(); itr != itr_e; ++itr) {
@@ -17,20 +17,20 @@ ListNode *construct_list(const std::vector<int> &vec) {
     return head;
 }
 
-TreeNode *construct_tree(const std::vector<tree_type> &vec) {
+TreeNode *TreeNode::construct(const std::vector<tree_type> &vec) {
     if (vec.empty()) return nullptr;
     queue<TreeNode *> q;
-    TreeNode *root = new TreeNode(vec[0]);
+    TreeNode *root = new TreeNode( static_cast<int>(vec[0]));
     q.push(root);
     int ind = 1;
     while (ind < vec.size()) {
         if (vec[ind] != tree_null) {
-            q.front()->left = new TreeNode(vec[ind]);
+            q.front()->left = new TreeNode(static_cast<int>(vec[ind]));
             q.push(q.front()->left);
         }
         ++ind;
         if (ind < vec.size() && vec[ind] != tree_null) {
-            q.front()->right = new TreeNode(vec[ind]);
+            q.front()->right = new TreeNode(static_cast<int>(vec[ind]));
             q.push(q.front()->right);
         }
         ++ind;
@@ -39,7 +39,7 @@ TreeNode *construct_tree(const std::vector<tree_type> &vec) {
     return root;
 }
 
-void display(const ListNode *node) {
+void ListNode::print(const ListNode *node) {
     cout << "List: ";
     if (!node) {
         cout << "null" << endl;
@@ -52,7 +52,7 @@ void display(const ListNode *node) {
     cout << node->val << endl;
 }
 
-static void display_a_vecor(const std::vector<int> &vec) {
+static inline void print_a_vector(const std::vector<int> &vec) {
     cout << "[ ";
     auto itr = vec.begin(), itr_e = vec.end();
     if (itr != itr_e) {
@@ -63,27 +63,27 @@ static void display_a_vecor(const std::vector<int> &vec) {
     cout << " ]";
 }
 
-void display(const std::vector<int> &vec) {
+void print(const std::vector<int> &vec) {
     cout << "Vector (" << vec.size() << "): ";
-    display_a_vecor(vec);
+    print_a_vector(vec);
     cout << endl;
 }
 
-void display(const std::vector<std::vector<int>> &vec) {
+void print(const std::vector<std::vector<int>> &vec) {
     cout << "Vector of vector (" << vec.size() << "): [" << endl;
     auto itr = vec.begin(), itr_e = vec.end();
     if (itr != itr_e) {
         cout << "\t";
-        display_a_vecor(*itr);
+        print_a_vector(*itr);
         for (++itr; itr != itr_e; ++itr) {
             cout << "," << endl << "\t";
-            display_a_vecor(*itr);
+            print_a_vector(*itr);
         }
     }
     cout << endl << "]" << endl;
 }
 
-void display(TreeNode *root) {
+void TreeNode::print(TreeNode *root) {
     cout << "Binary tree:" << endl;
     if (root == nullptr) {
         cout << "<empty>" << endl;
