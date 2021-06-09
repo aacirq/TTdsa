@@ -69,6 +69,19 @@ void print(const std::vector<int> &vec) {
     cout << endl;
 }
 
+void print(const std::vector<std::string> &vec) {
+    cout << "Vector (" << vec.size() << "): ";
+    cout << "[ ";
+    auto itr = vec.begin(), itr_e = vec.end();
+    if (itr != itr_e) {
+        cout << *itr;
+        for (++itr; itr != itr_e; ++itr)
+            cout << ", " << *itr;
+    }
+    cout << " ]";
+    cout << endl;
+}
+
 void print(const std::vector<std::vector<int>> &vec) {
     cout << "Vector of vector (" << vec.size() << "): [" << endl;
     auto itr = vec.begin(), itr_e = vec.end();

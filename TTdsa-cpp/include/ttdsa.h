@@ -86,6 +86,7 @@ struct TreeNode {
 // Output like:
 //   Vector (<size>): [ <value>, <value>, ... ]
 void print(const std::vector<int> &vec);
+void print(const std::vector<std::string> &vec);
 
 // display vector of vector
 // Output example:
