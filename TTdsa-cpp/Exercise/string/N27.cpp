@@ -20,14 +20,15 @@ public:
             return;
         }
 
-        perm(str, ind + 1, vec);
+        unordered_set<char> s;
         for (int i = ind; i < str.size(); i++) {
-            if (str[ind] != str[i]) {
-                using std::swap;
-                swap(str[i], str[ind]);
-                perm(str, ind + 1, vec);
-                swap(str[i], str[ind]);
-            }
+            if (s.find(str[i]) != s.end())
+                continue;
+            using std::swap;
+            s.insert(str[i]);
+            swap(str[i], str[ind]);
+            perm(str, ind + 1, vec);
+            swap(str[i], str[ind]);
         }
     }
 };
@@ -40,6 +41,9 @@ int main() {
 
     // Vector (1): [ aaa ]
     print(sol.Permutation("aaa"));
+
+    // Vector (1): [ aaa ]
+    print(sol.Permutation("baaa"));
 
     // Vector (14): [ aabd, aadb, abad, abda, adab, adba, baad, bada, bdaa, daab, daab, daba, daba, dbaa ]
     print(sol.Permutation("abad"));
