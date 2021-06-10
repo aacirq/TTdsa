@@ -8,3 +8,6 @@ target_link_libraries(N02 IncludeLib)
 
 add_executable(N27 string/N27.cpp)
 target_link_libraries(N27 IncludeLib)
+
+add_executable(N34 hash/N34.cpp)
+target_link_libraries(N34 IncludeLib)
