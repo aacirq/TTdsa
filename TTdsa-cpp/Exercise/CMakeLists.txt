@@ -11,3 +11,6 @@ target_link_libraries(N27 IncludeLib)
 
 add_executable(N34 hash/N34.cpp)
 target_link_libraries(N34 IncludeLib)
+
+add_executable(N43 string/N43.cpp)
+target_link_libraries(N43 IncludeLib)
