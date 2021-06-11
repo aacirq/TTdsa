@@ -20,3 +20,6 @@ target_link_libraries(N43 IncludeLib)
 
 add_executable(N44 string/N44.cpp)
 target_link_libraries(N44 IncludeLib)
+
+add_executable(N49 string/N49.cpp)
+target_link_libraries(N49 IncludeLib)
