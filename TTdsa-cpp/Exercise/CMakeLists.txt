@@ -37,3 +37,6 @@ target_link_libraries(N54 IncludeLib)
 # stack
 add_executable(N05 stack/N05.cpp)
 target_link_libraries(N05 IncludeLib)
+
+add_executable(N20 stack/N20.cpp)
+target_link_libraries(N20 IncludeLib)
