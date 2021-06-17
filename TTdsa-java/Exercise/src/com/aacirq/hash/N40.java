@@ -13,19 +13,18 @@ public class N40 {
     }
 
     public int[] FindNumsAppearOnce(int[] array) {
-        HashMap<Integer, Boolean> hash = new HashMap<>();
+        int x = 0;
         for (int i : array) {
-            hash.put(i, !hash.containsKey(i));
+            x ^= i;
         }
-
-        int[] res = new int[2];
-        int ind = 0;
-
-        for (Map.Entry<Integer, Boolean> entry : hash.entrySet()) {
-            if (entry.getValue()) {
-                res[ind] = entry.getKey();
-                ind++;
-            }
+        int m = 1;
+        while ((x & m) == 0) {
+            m <<= 1;
+        }
+        int[] res = {0, 0};
+        for (int i : array) {
+            if ((m & i) == 0) res[0] ^= i;
+            else res[1] ^= i;
         }
 
         if (res[0] > res[1]) {
