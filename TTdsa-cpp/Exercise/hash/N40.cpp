@@ -7,14 +7,18 @@
 class Solution {
 public:
     vector<int> FindNumsAppearOnce(vector<int> &array) {
-        int x = 0;
+        int m = 0;
         for (int i : array) {
-            x ^= i;
+            m ^= i;
         }
-        int m = 1;
-        while ((m & x) == 0) {
-            m <<= 1;
-        }
+
+        m |= (m << 1);
+        m |= (m << 2);
+        m |= (m << 4);
+        m |= (m << 8);
+        m |= (m << 16);
+        m = (~m) + 1;
+
         vector<int> res(2, 0);
         for (int i : array) {
             if (i & m) res[0] ^= i;
