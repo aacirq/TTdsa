@@ -7,24 +7,22 @@
 class Solution {
 public:
     double Power(double base, int exponent) {
-        if (exponent < 0) {
-            return 1.0 / fun(base, -exponent);
-        } else {
-            return fun(base, exponent);
+        if (base == 0)
+            return 0;
+        double b = base;
+        long e = exponent;
+        if (e < 0) {
+            b = 1/b;
+            e = -e;
         }
-    }
-
-private:
-    double fun(double base, int exponent) {
-        if (exponent == 0)
-            return 1.0;
-        if (exponent == 1)
-            return base;
-        double part = fun(base, exponent / 2);
-        if (exponent % 2 == 0)
-            return part * part;
-        else
-            return part * part * base;
+        double res = 1.0;
+        while (e != 0) {
+            if ((e & 1) != 0)
+                res *= b;
+            b *= b;
+            e >>= 1;
+        }
+        return res;
     }
 };
 
