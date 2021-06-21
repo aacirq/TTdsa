@@ -31,6 +31,9 @@ target_link_libraries(N12 IncludeLib)
 add_executable(N31 math/N31.cpp)
 target_link_libraries(N31 IncludeLib)
 
+add_executable(N47 math/N47.cpp)
+target_link_libraries(N47 IncludeLib)
+
 # string
 add_executable(N02 string/N02.cpp)
 target_link_libraries(N02 IncludeLib)
