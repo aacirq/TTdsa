@@ -10,7 +10,7 @@ public:
     int cutRope(int number) {
         if (number <= 3) return number - 1;
         int a = number / 3, b = number % 3;
-        int res;
+        double res;
         if (b == 0) {
             res = std::pow(3, a);
         } else if (b == 1) {
@@ -18,7 +18,7 @@ public:
         } else {
             res = std::pow(3, a) * 2;
         }
-        return res;
+        return static_cast<int>(res);
     }
 };
 
