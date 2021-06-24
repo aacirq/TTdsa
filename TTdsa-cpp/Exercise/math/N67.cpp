@@ -3,21 +3,22 @@
 //
 
 #include "ttdsa.h"
+#include <cmath>
 
 class Solution {
 public:
     int cutRope(int number) {
-        vector<int> dp(number + 1, 0);
-        dp[0] = 0;
-        dp[1] = 1;
-        for (int n = 2; n <= number; n++) {
-            for (int i = n/2; i > 0; i--) {
-                int t1 = std::max(i, dp[i]);
-                int t2 = std::max(n-i, dp[n-i]);
-                dp[n] = std::max(dp[n], t1 * t2);
-            }
+        if (number <= 3) return number - 1;
+        int a = number / 3, b = number % 3;
+        int res;
+        if (b == 0) {
+            res = std::pow(3, a);
+        } else if (b == 1) {
+            res = std::pow(3, a - 1) * 4;
+        } else {
+            res = std::pow(3, a) * 2;
         }
-        return dp[number];
+        return res;
     }
 };
 
