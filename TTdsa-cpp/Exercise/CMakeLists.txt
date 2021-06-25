@@ -4,6 +4,10 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 add_executable(N01 array/N01.cpp)
 target_link_libraries(N01 IncludeLib)
 
+# binary search
+add_executable(N06 binary_search/N06.cpp)
+target_link_libraries(N06 IncludeLib)
+
 # dp
 add_executable(N52 dp/N52.cpp)
 target_link_libraries(N52 IncludeLib)
