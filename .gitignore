@@ -2,3 +2,5 @@
 *.iml
 out/
 cmake-build-debug/
+build/
+
