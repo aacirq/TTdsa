@@ -84,3 +84,7 @@ target_link_libraries(N20 IncludeLib)
 
 add_executable(N21 stack/N21.cpp)
 target_link_libraries(N21 IncludeLib)
+
+# tree
+add_executable(N26 tree/N26.cpp)
+target_link_libraries(N26 IncludeLib)

@@ -19,6 +19,7 @@ ListNode *ListNode::construct(const std::vector<int> &vec) {
 
 TreeNode *TreeNode::construct(const std::vector<tree_type> &vec) {
     if (vec.empty()) return nullptr;
+    if (vec[0] == tree_null) return nullptr;
     queue<TreeNode *> q;
     TreeNode *root = new TreeNode( static_cast<int>(vec[0]));
     q.push(root);
