@@ -9,8 +9,14 @@ add_executable(N06 binary_search/N06.cpp)
 target_link_libraries(N06 IncludeLib)
 
 # dp
-add_executable(N52 dp/N52.cpp)
-target_link_libraries(N52 IncludeLib)
+add_executable(N08 dp/N08.cpp)
+target_link_libraries(N08 IncludeLib)
+
+add_executable(N09 dp/N09.cpp)
+target_link_libraries(N09 IncludeLib)
+
+add_executable(N10 dp/N10.cpp)
+target_link_libraries(N10 IncludeLib)
 
 add_executable(N33 dp/N33.cpp)
 target_link_libraries(N33 IncludeLib)
@@ -18,11 +24,8 @@ target_link_libraries(N33 IncludeLib)
 add_executable(N46 dp/N46.cpp)
 target_link_libraries(N46 IncludeLib)
 
-add_executable(N08 dp/N08.cpp)
-target_link_libraries(N08 IncludeLib)
-
-add_executable(N09 dp/N09.cpp)
-target_link_libraries(N09 IncludeLib)
+add_executable(N52 dp/N52.cpp)
+target_link_libraries(N52 IncludeLib)
 
 # hash
 add_executable(N34 hash/N34.cpp)
