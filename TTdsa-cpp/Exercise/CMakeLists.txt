@@ -18,6 +18,9 @@ target_link_libraries(N09 IncludeLib)
 add_executable(N10 dp/N10.cpp)
 target_link_libraries(N10 IncludeLib)
 
+add_executable(N30 dp/N30.cpp)
+target_link_libraries(N30 IncludeLib)
+
 add_executable(N33 dp/N33.cpp)
 target_link_libraries(N33 IncludeLib)
 
