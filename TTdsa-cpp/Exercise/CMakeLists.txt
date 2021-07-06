@@ -34,6 +34,10 @@ target_link_libraries(N34 IncludeLib)
 add_executable(N40 hash/N40.cpp)
 target_link_libraries(N40 IncludeLib)
 
+# heap
+add_executable(N29 heap/N29.cpp)
+target_link_libraries(N29 IncludeLib)
+
 # math
 add_executable(N11 math/N11.cpp)
 target_link_libraries(N11 IncludeLib)
