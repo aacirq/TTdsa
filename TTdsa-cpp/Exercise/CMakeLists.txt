@@ -67,6 +67,9 @@ target_link_libraries(N41 IncludeLib)
 add_executable(N45 others/N45.cpp)
 target_link_libraries(N45 IncludeLib)
 
+add_executable(N63 others/N63.cpp)
+target_link_libraries(N63 IncludeLib)
+
 # string
 add_executable(N02 string/N02.cpp)
 target_link_libraries(N02 IncludeLib)
