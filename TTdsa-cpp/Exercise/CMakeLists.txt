@@ -117,3 +117,6 @@ target_link_libraries(N26 IncludeLib)
 
 add_executable(L863 tree/L863.cpp)
 target_link_libraries(L863 IncludeLib)
+
+add_executable(L1104 tree/L1104.cpp)
+target_link_libraries(L1104 IncludeLib)
