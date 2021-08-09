@@ -37,6 +37,9 @@ target_link_libraries(N34 IncludeLib)
 add_executable(N40 hash/N40.cpp)
 target_link_libraries(N40 IncludeLib)
 
+add_executable(L3 hash/L3.cpp)
+target_link_libraries(L3 IncludeLib)
+
 # heap
 add_executable(N29 heap/N29.cpp)
 target_link_libraries(N29 IncludeLib)
@@ -123,3 +126,6 @@ target_link_libraries(L863 IncludeLib)
 
 add_executable(L1104 tree/L1104.cpp)
 target_link_libraries(L1104 IncludeLib)
+
+add_executable(L1382 tree/L1382.cpp)
+target_link_libraries(L1382 IncludeLib)
