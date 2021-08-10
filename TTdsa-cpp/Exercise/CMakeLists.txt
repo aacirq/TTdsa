@@ -8,6 +8,9 @@ target_link_libraries(N01 IncludeLib)
 add_executable(N06 binary_search/N06.cpp)
 target_link_libraries(N06 IncludeLib)
 
+add_executable(L4 binary_search/L4.cpp)
+target_link_libraries(L4 IncludeLib)
+
 # dp
 add_executable(N08 dp/N08.cpp)
 target_link_libraries(N08 IncludeLib)
