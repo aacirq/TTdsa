@@ -106,6 +106,38 @@ void finite_automation_matcher(const std::string &str,
   }
 }
 
+void kmp_matcher(const std::string &str, const std::string &pattern) {
+  int m = pattern.size();
+
+  // Compute prefix function
+  std::vector<int> pre_func(m, -1);
+  int k = -1;
+  for (int i = 1; i < m; ++i) {
+    while (k >= 0 && pattern[i] != pattern[k + 1]) {
+      k = pre_func[k];
+    }
+    if (pattern[k + 1] == pattern[i]) {
+      ++k;
+    }
+    pre_func[i] = k;
+  }
+
+  // Match
+  int n = str.size();
+  k = -1;
+  for (int i = 0; i < n; ++i) {
+    while (k >= 0 && pattern[k + 1] != str[i]) {
+      k = pre_func[k];
+    }
+    if (pattern[k + 1] == str[i]) {
+      ++k;
+    }
+    if (k == m - 1) {
+      std::cout << "Pattern occurs with shift " << i - m + 1 << std::endl;
+    }
+  }
+}
+
 using std::cout;
 using std::endl;
 using std::string;
@@ -119,6 +151,8 @@ void test(const string &str, const string &pattern) {
   rabin_karp_matcher(str, pattern, 256, 999983);
   cout << "==> finite_automation_matcher" << endl;
   finite_automation_matcher(str, pattern);
+  cout << "==> kmp_matcher" << endl;
+  kmp_matcher(str, pattern);
 }
 
 int main() {
