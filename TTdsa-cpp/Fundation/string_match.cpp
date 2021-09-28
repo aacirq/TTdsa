@@ -1,6 +1,7 @@
 #include <cmath>
 #include <iostream>
 #include <string>
+#include <vector>
 
 bool same(const std::string &str, const std::string &pattern, int str_ind) {
   int m = pattern.size();
@@ -63,6 +64,48 @@ void rabin_karp_matcher(const std::string &str, const std::string &pattern,
   }
 }
 
+static bool is_postfix(const std::string &pattern, int k, int q) {
+  // check if pattern[0 ... k-1] (first k characters) is postfix of
+  // pattern[0 ... q-1] (first q characters)
+  int ind_start = q - k;
+  for (int i = 0; i < k; ++i) {
+    if (pattern[i] != pattern[ind_start + i]) return false;
+  }
+  return true;
+}
+
+void finite_automation_matcher(const std::string &str,
+                               const std::string &pattern) {
+  int m = pattern.size();
+  int n_row = m + 1;
+  int n_col = 128;
+  std::vector<std::vector<int>> trans_func(n_row, std::vector<int>(n_col, 0));
+
+  // Compute transition function
+  for (int i_p = 0; i_p < n_row; ++i_p) {
+    int t_k = std::min(m, i_p + 1);
+    for (int c = 0; c < n_col; ++c) {
+      int k = t_k;
+      char t_c = static_cast<char>(c);
+      while (k > 0 &&
+             (!is_postfix(pattern, k - 1, i_p) || pattern[k - 1] != t_c)) {
+        --k;
+      }
+      trans_func[i_p][c] = k;
+    }
+  }
+
+  // Match
+  int n = str.size();
+  int q = 0;
+  for (int i = 0; i < n; ++i) {
+    q = trans_func[q][static_cast<int>(str[i])];
+    if (q == m) {
+      std::cout << "Pattern occurs with shift " << i - m + 1 << std::endl;
+    }
+  }
+}
+
 using std::cout;
 using std::endl;
 using std::string;
@@ -74,6 +117,8 @@ void test(const string &str, const string &pattern) {
   native_string_matcher(str, pattern);
   cout << "==> rabin_karp_matcher" << endl;
   rabin_karp_matcher(str, pattern, 256, 999983);
+  cout << "==> finite_automation_matcher" << endl;
+  finite_automation_matcher(str, pattern);
 }
 
 int main() {
