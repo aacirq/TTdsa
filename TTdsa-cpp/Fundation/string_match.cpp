@@ -77,8 +77,6 @@ void test(const string &str, const string &pattern) {
 }
 
 int main() {
-  int q = 999983, t = 82916, d = 256, h = 319786;
-
   test("aaab", "aaab");
   test("aaab", "aa");
   test("aaab", "a");
