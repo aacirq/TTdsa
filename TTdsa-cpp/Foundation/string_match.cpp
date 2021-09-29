@@ -134,6 +134,7 @@ void kmp_matcher(const std::string &str, const std::string &pattern) {
     }
     if (k == m - 1) {
       std::cout << "Pattern occurs with shift " << i - m + 1 << std::endl;
+      k = pre_func[k];
     }
   }
 }
@@ -160,5 +161,6 @@ int main() {
   test("aaab", "aa");
   test("aaab", "a");
   test("000000100000101000", "000001");
+  test("ababababababab", "aba");
   return 0;
 }
